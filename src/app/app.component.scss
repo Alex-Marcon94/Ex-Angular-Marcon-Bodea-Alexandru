@@ -1,0 +1,47 @@
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+
+  .main-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .tree-container {
+    width: 25%;
+  }
+
+  .coffee-container {
+    width: 75%;
+  }
+
+  .mat-mdc-form-field + .mat-mdc-form-field {
+    margin-left: 8px;
+  }
+
+  .example-full-width {
+    width: 60%;
+    margin-bottom: 5px;
+  }
+
+  :host ::ng-deep {
+    .example-full-width { // add my-custom-component-small class to your mat-form-field element
+      .mat-form-field-flex > .mat-form-field-infix { padding: 0.4em 0 !important;}
+      .mat-form-field-label-wrapper { top: -1.5em; }
+  
+      &.mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+        transform: translateY(-1.1em) scale(.75);
+        width: 133.33333%;
+      }
+    }
+  }
+
+  .center {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .clickable {
+    cursor: pointer;
+  }
