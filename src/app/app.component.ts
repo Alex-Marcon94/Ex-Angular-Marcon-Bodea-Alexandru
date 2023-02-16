@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { debounceTime } from 'rxjs/internal/operators/debounceTime';
 import { CafeneaSauLocalitate } from './cafeneasaulocalitate';
 import { ProdusDisponibil, PseudoApiService } from './pseudo-api.service';
@@ -20,7 +21,8 @@ export class AppComponent implements OnInit {
 
   constructor(
     private api: PseudoApiService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -59,6 +61,8 @@ export class AppComponent implements OnInit {
       } else {
         this.showCoffeePlace = false
       }
+    }, err => {
+      this.snackBar.open(err, '', { duration: 2000, panelClass: ['red-snackbar'] })
     });
   }
 }
