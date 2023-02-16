@@ -15,7 +15,6 @@ export class TreeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log('tree', this.localitati)
   }
 
   selectCoffeeShop(id: number) {

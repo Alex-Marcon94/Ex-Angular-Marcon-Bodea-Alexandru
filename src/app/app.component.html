@@ -1,27 +1,27 @@
 <mat-toolbar color="primary">
   <span>Coffee Finder</span>
 </mat-toolbar>
-  <div class="main-container">
-    <div class="tree-container">
-      <app-tree [localitati]="localitati" (childEvent)="goToCoffe($event)"></app-tree>
-    </div> 
-    <div class="coffee-container">
-      <h1 class="center">Coffee</h1>
-      <div *ngIf="showCoffeePlace">
-      <form [formGroup]="form" class="center">    
-        <div>
-            <mat-form-field appearance="outline" class="example-full-width">
-                <mat-label>Search</mat-label>
-                <input matInput formControlName="filtru">
-            </mat-form-field>
-        </div>
-      </form>
-        <div *ngFor="let coffee of coffeeData">
-          <app-coffee-card [coffee]="coffee"></app-coffee-card>
-        </div>
-        <p *ngIf="!coffeeData.length" class="center">No data found</p>
+<div class="main-container">
+  <div class="tree-container">
+    <app-tree [localitati]="localitati" (childEvent)="goToCoffe($event)"></app-tree>
+  </div> 
+  <div class="coffee-container">
+    <h1 class="center">Coffee</h1>
+    <div *ngIf="showCoffeePlace">
+    <form [formGroup]="form" class="center">    
+      <div>
+          <mat-form-field appearance="outline" class="example-full-width">
+              <mat-label>Search</mat-label>
+              <input matInput formControlName="filtru">
+          </mat-form-field>
       </div>
+    </form>
+      <div *ngFor="let coffee of coffeeData">
+        <app-coffee-card [coffee]="coffee"></app-coffee-card>
+      </div>
+      <p *ngIf="!coffeeData.length" class="center">No data found</p>
     </div>
   </div>
+</div>
 
 <router-outlet></router-outlet>
