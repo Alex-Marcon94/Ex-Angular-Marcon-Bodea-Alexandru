@@ -8,11 +8,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CoffeeCardComponent } from './components/coffee-card/coffee-card.component';
+import { TreeComponent } from './components/tree/tree.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CoffeeCardComponent
+    CoffeeCardComponent,
+    TreeComponent
   ],
   imports: [
     BrowserModule,
