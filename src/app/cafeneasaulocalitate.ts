@@ -4,6 +4,7 @@ export interface CafeneaSauLocalitate {
     denumire: string;
     fel: string; // Aici voi avea "C" de la cafenea sau "L" de la localitate
     adancime?: number | null;
+    children?: any
   }
 
 export class ListaCafenele {

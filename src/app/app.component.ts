@@ -36,14 +36,19 @@ export class AppComponent implements OnInit {
     });
 
     this.form.get('filtru')!.valueChanges.pipe(debounceTime(250)).subscribe((value: any) => {
-      this.api.ProduseDisponibile(this.selectedId).subscribe(data => {
-        this.coffeeData = data.filter((item:any) => 
-        item.denumire.toLowerCase().includes(value.toLowerCase()) ||
-        item.descriere.toLowerCase().includes(value.toLowerCase()) ||
-        item.id == value);
-      })
 
-      if (value.length === 0) {
+      if(value) {
+        let splitted = value.split(" ");
+        splitted.map((words: string) => {
+          this.api.ProduseDisponibile(this.selectedId).subscribe(data => {
+            console.log('words', words)
+            this.coffeeData = data.filter((item:any) => 
+            item.denumire.toLowerCase().includes(words.toLowerCase()) ||
+            item.descriere.toLowerCase().includes(words.toLowerCase()) ||
+            item.id == words);
+          })
+        })
+      } else {
         this.api.ProduseDisponibile(this.selectedId).subscribe(data => {
           this.showCoffeePlace = true;
           this.coffeeData = data;
@@ -53,6 +58,7 @@ export class AppComponent implements OnInit {
   }
 
   goToCoffe(id: number) {
+    this.form.reset();
     this.selectedId = id;
     this.api.ProduseDisponibile(id).subscribe(data => {
       if(data) {
